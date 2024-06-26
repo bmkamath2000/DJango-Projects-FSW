@@ -1,0 +1,15 @@
+<ol>
+    {% if today_is_weekend %}
+    {%for itemname in item_list reversed%}
+    <li>{{itemname}} {{forloop.counter0}}.{{forloop.revcounter}}</li>
+    {%endfor%}
+    {%endif%}
+    {#This is a comment#}
+    {% comment %}
+        Multi 
+        line 
+        comments
+        
+    {% endcomment %}  
+        
+</ol>

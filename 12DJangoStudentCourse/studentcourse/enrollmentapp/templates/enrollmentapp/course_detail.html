@@ -1,0 +1,8 @@
+<html>
+    <body>
+       <h1>Enrolled in {{course.name}} are following students</h1>
+            {%for student in students%}
+            {{student.name}}<br>
+            {% endfor %}
+    </body>
+</html>

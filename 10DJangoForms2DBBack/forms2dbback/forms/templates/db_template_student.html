@@ -1,0 +1,8 @@
+<ol>
+    {%for student in students%}
+    <li>{{student.name}} with reg no {{student.regno}}</li>
+    {% endfor %}
+    {%if param1%}
+    {{param1}}
+    {%endif%}
+</ol>

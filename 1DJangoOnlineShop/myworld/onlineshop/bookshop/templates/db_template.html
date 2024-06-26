@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your View Title</title>
+</head>
+<body>
+    <h1>Fetched Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if data %}
+                <h1>Data present</h1>
+            {% else %}
+                <h1>Data absent</h1>
+            {% endif %}
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.author }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

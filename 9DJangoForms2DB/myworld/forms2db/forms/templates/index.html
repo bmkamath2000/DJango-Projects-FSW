@@ -1,0 +1,16 @@
+<html>
+<style>
+    body {
+        display: block;
+    }
+</style>
+<body>
+{% csrf_token %}
+<form method="POST" id="myform">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">SUBMIT</button>
+</form>
+{{param1}}
+</body>
+</html>
