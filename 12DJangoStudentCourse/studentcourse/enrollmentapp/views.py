@@ -16,7 +16,8 @@ def register_student(request):
 def course_detail(request, course_id):
     course = Course.objects.get(id=course_id)
     students = Student.objects.filter(courses=course_id)
-    return render(request, 'enrollmentapp/course_detail.html', {'course': course, 'students': students})
+    return render(request, 'enrollmentapp/course_detail.html', 
+    {'course': course, 'students': students})
 
 
 
