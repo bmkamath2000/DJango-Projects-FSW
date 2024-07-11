@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <h1>Project List</h1>
+        <ul>
+            {% for project in projects %}
+            <li><a href="{% url 'project_detail' pk=project.id %}">{{project.topic}}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

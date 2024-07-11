@@ -6,8 +6,6 @@ from django.views.generic import(
     TemplateView,
     ListView,
     DetailView,
-
-
     #edit 
     FormView,
     CreateView,
@@ -27,23 +25,23 @@ def register_student(request):
         form = StudentForm()
     return render(request,'enrollmentapp/register_student.html',{'form':form})
 
-class CourseDetailView(DetailView):
-    model = Course
-    template_name = 'enrollmentapp/course_detail.html'
-    context_object_name = 'courses'
+class StudentDetailView(DetailView):
+    model = Student
+    template_name = 'enrollmentapp/student_detail.html'
+    context_object_name = 'students'
     
 # Create your views here.
-class CourseListView(ListView):
-    template_name = 'enrollmentapp/course_list.html'
-    model = Course
-    context_object_name = 'courselist'
+class StudentListView(ListView):
+    template_name = 'enrollmentapp/student_list.html'
+    model = Student
+    context_object_name = 'studentlist'
 
 #or this can be the handler for reg student
 class RegisterStudentView(FormView):
     template_name = 'enrollmentapp/register_student.html'
     form_class  = StudentForm
     success_url = '/'
-    fields = ['name','courses']
+    fields = ['name','usn','courses']
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.

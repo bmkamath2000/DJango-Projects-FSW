@@ -2,7 +2,7 @@
     <body>
         <ul>
             {% for course in courselist %}
-            <li><a href="{% url 'course_detail' courseid=course.id %}">{{course.name}}</a></li>
+            <li><a href="{% url 'course_detail' pk=course.id %}">{{course.name}}</a></li>
             {% endfor %}
         </ul>
     </body>
