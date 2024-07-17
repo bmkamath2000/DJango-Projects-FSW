@@ -9,5 +9,5 @@ Authored by Chandrashekar Rao Kuthyar Sir
 
 Assignment 2- FSD
 
-Develop a registration page for student enrolment as done in Module 2 but without page refresh using AJAX. In the same project create a separate app that performs CSV and PDF generation for any models created in the student enrollment activity.
+Develop a registration page for student enrolment as done in Module 2 but without page refresh using AJAX in a django app. In the same app performs CSV and PDF generation for any models created in the student enrollment activity.
 
