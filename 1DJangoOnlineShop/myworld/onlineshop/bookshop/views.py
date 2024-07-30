@@ -7,7 +7,6 @@ def authorlist(request):
     data = bookshop.objects.all()  # Example query
     # Pass the data to the template context
     context = {'data': data}
-
     # Render the template with the context
     return render(request, 'db_template.html', context)
 
