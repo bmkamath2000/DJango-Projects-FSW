@@ -21,6 +21,6 @@ from . import views
 
 urlpatterns = [
     path('course_list/',views.CourseListView.as_view(),name='course_list'),
-    path('course_detail/<int:courseid>/',views.CourseDetailView,name='course_detail'),
+    path('course_detail/<int:pk>/',views.CourseDetailView.as_view(),name='course_detail'),
     path('register_student/',views.RegisterStudentView.as_view(),name='register_student'),
 ]

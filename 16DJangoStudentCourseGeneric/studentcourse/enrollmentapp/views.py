@@ -17,7 +17,7 @@ from django.views.generic import(
 # Create your views here.
 
 from .models import Course, Student
-
+#Either this can be the handler for reg student
 def register_student(request):
     if request.POST:
         form = StudentForm(request.POST)
@@ -27,19 +27,18 @@ def register_student(request):
         form = StudentForm()
     return render(request,'enrollmentapp/register_student.html',{'form':form})
 
-def CourseDetailView(request, courseid):
-    course = Course.objects.get(id=courseid)
-    students = Student.objects.filter(courses=course)
-    return render(request, 'enrollmentapp/course_detail.html', 
-    {'course': course, 'students': students})
-
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = 'enrollmentapp/course_detail.html'
+    context_object_name = 'courses'
+    
 # Create your views here.
 class CourseListView(ListView):
     template_name = 'enrollmentapp/course_list.html'
     model = Course
     context_object_name = 'courselist'
 
-
+#or this can be the handler for reg student
 class RegisterStudentView(FormView):
     template_name = 'enrollmentapp/register_student.html'
     form_class  = StudentForm

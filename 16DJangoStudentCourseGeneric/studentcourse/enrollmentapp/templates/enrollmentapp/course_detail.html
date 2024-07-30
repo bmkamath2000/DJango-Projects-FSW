@@ -1,7 +1,7 @@
 <html>
     <body>
-       <h1>Enrolled in {{course.name}} are following students</h1>
-            {%for student in students%}
+       <h1>Enrolled in {{courses.name}} are following students</h1>
+            {%for student in courses.student.all %}
             {{student.name}}<br>
             {% endfor %}
     </body>

@@ -1,0 +1,15 @@
+<html>
+    <body>
+        
+        <h1>Title:{{projects.topic}}</h1>
+        <br/>
+        <h2>Languages: {% for language in projects.languages.all %}
+            {{ language.name }}<br/>
+            {% endfor %}
+        </h2>
+        <br/>
+        <h2>
+            Duration(days):{{projects.duration_days}}
+        </h2>
+    </body>
+</html>
