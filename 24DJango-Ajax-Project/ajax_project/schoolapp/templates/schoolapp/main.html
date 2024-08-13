@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Student Registration Form</h1>
+    <label>First name:</label><input type='text' id='first_name' name='first_name'/><br/>
+    <label>Last name:</label><input type='text' id='last_name' name='last_name'/></br/>
+    <button id='register'>Register</button>
+
+<h1>List of Students so far:</h1>
+<table id='myTable' border='1'>
+<thead>
+    <tr>
+        <td>Id</td>
+        <td>First name</td>
+        <td>Last name</td>
+    </tr>
+</thead>
+{% for s in students %}
+<tr><td>{{s.id}}</id><td>{{s.first_name}}</td><td>{{s.last_name}}</td></tr>
+{% endfor %}
+</table>
+
+{% block javascript %}
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script>
+
+$(document).ready(function() {
+
+    $('#register').click(function() {
+        var first_name = $('#first_name').val();
+        var last_name = $('#last_name').val();
+        $.ajax({
+            data: {
+                'first_name': first_name,
+                'last_name': last_name
+            },
+            url: '{% url "register" %}',
+            success: function(response) {
+                row = '<tr>';
+                td0 = '<td>'.concat(response.id).concat(
+'</td>');
+                td1 = '<td>'.concat(first_name).concat('</td>');
+                td2 = '<td>'.concat(last_name).concat(
+'</td>');
+                row = row.concat(td0)
+                .concat(td1)
+                .concat(td2)
+                .concat('</tr>');
+                $('#myTable').append(row);
+            },
+            error: function(response) {
+                alert('Error occurred');
+            }
+        });
+    });
+});
+
+
+</script>
+{% endblock %}
+</body>
+</html>

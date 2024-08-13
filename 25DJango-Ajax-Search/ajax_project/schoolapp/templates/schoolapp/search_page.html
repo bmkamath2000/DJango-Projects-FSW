@@ -1,0 +1,43 @@
+<h1>Search  Page</h1>
+<h1>List of courses for student</h1>
+<input type='text' id='name'/>
+<button id='search'>Search student</button>
+<div id='result'>
+</div>
+
+{% block javascript %}
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script>
+$(document).ready(function() {
+    $('#search').click(function () {
+        var name = $('#name').val();
+        $.ajax({
+            data: {'name': name},
+            url: '{% url "search" %}',
+            success: function(response) {
+                str = '<ul>';
+                students = response;
+                for (var i = 0; i < students.length; i++) {
+                    str = str.concat('<li>')
+                    .concat(students[i]['id'])
+                    .concat(' ')
+                    .concat(students[i]['first_name'])
+                    .concat(' ')
+                    .concat(students[i]['last_name'])
+                    .concat(': <ul>');
+                    for (var j = 0; j < students[i].courses.length; j++) {
+                        str = str.concat('<li>').concat(students[i].courses[j].course_name).concat('</li>');
+                    }
+                    str = str.concat('</ul></li>');
+                }
+                str = str.concat('</ul>');
+                $('#result').html(str);
+            },
+            error: function(response) {
+                alert('error occured')
+            }
+        });
+    });
+});
+</script>
+{% endblock %}
