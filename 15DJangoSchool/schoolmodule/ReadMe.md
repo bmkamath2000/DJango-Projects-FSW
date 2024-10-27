@@ -1,9 +1,15 @@
 once in schoolmodule folder
+
     cd frontend
+    
     npm install (which creates the node_modules folder)
+    
     npm run build ( this builds the frontend)
+    
     cd ..
+    
     python manage.py collectstatic (this command collects all static files into staticfiles folder)
+    
 Finally:
 Run DJango Server: 
     python manage.py runserver
